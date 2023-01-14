@@ -8,9 +8,7 @@ class ProductsSpider(scrapy.Spider):
     name = "productsSpider"
 
     start_urls = [
-        'https://www.phoneplacekenya.com/shop/',
-        # 'https://www.phoneshopkenya.co.ke/shop/page/1',
-        # 'https://phonesstorekenya.com/shop/page/1',
+        'https://www.examplewooshop.com/shop/',
     ]
 
     # rules = (
