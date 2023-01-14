@@ -24,10 +24,10 @@ class ProductsSpider(scrapy.Spider):
         ).getall()
         yield from response.follow_all(product_urls, callback=self.parse_product)
 
-        # next_page = response.css('ul.page-numbers li a.next::attr(href)').get()
-        # if next_page is not None:
-        #     next_page = response.urljoin(next_page)
-        #     yield response.follow(next_page, callback=self.parse)
+        next_page = response.css('ul.page-numbers li a.next::attr(href)').get()
+        if next_page is not None:
+            next_page = response.urljoin(next_page)
+            yield response.follow(next_page, callback=self.parse)
 
     def parse_product(self, response):
         product_item = WoocommercewebscrapingItem()
@@ -45,8 +45,7 @@ class ProductsSpider(scrapy.Spider):
         
         product_item["type"] = response.css(
             '.product').xpath("@class").get()
-        # product_item["published"] = response.css(
-        #     '.product').xpath("@class").get()
+        product_item["published"] = 1
         product_item["inStock"] = response.css(
             '.product').xpath("@class").get()
         # product_item["isFeatured"] = response.css(

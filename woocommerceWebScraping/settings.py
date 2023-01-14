@@ -94,5 +94,5 @@ ITEM_PIPELINES = {
 REQUEST_FINGERPRINTER_IMPLEMENTATION = '2.7'
 TWISTED_REACTOR = 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'
 
-FEED_FORMAT = 'json'
-FEED_URI = 'products.json'
+FEED_FORMAT = 'csv'
+FEED_URI = 'products.csv'
