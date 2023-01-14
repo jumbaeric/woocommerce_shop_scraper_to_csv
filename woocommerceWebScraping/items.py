@@ -45,7 +45,7 @@ class WoocommercewebscrapingItem(Item):
     attribute_9_value = Field()
     attribute_10_name = Field()
     attribute_10_value = Field()
-    variations = Field()
+    published = Field()
+    isFeatured = Field()
     inStock = Field()
-    options = Field()
     pass

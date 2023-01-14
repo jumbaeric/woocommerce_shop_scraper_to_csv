@@ -63,9 +63,11 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    'woocommerceWebScraping.pipelines.WoocommercewebscrapingPipeline': 300,
-# }
+ITEM_PIPELINES = {
+   'woocommerceWebScraping.pipelines.ProductTypePipeline': 300,
+   'woocommerceWebScraping.pipelines.ProductInStockPipeline': 400,
+   'woocommerceWebScraping.pipelines.DuplicatesPipeline': 500,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

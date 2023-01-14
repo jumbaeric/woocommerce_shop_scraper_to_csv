@@ -42,8 +42,17 @@ class ProductsSpider(scrapy.Spider):
             'div.woocommerce-tabs div.product_meta span.posted_in a::text').get()
         product_item["tags"] = response.css(
             'div.woocommerce-tabs div.product_meta span.tagged_as a::text').get()
-        product_item["options"] = response.css(
+        
+        product_item["type"] = response.css(
             '.product').xpath("@class").get()
+        # product_item["published"] = response.css(
+        #     '.product').xpath("@class").get()
+        product_item["inStock"] = response.css(
+            '.product').xpath("@class").get()
+        # product_item["isFeatured"] = response.css(
+        #     '.product').xpath("@class").get()
+        # product_item["productId"] = response.css(
+        #     '.product').xpath("@class").get()
 
         product_item["attribute_1_name"] = response.css(
             'table.woocommerce-product-attributes tr:nth-child(1) th.woocommerce-product-attributes-item__label::text').get()
